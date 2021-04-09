@@ -1,4 +1,5 @@
 import "antd/dist/antd.css";
+import s from "./Main.module.css";
 import { Table } from "antd";
 import { useContextFunc } from "./../components/ContextProvider";
 import { useMemo } from "react";
@@ -41,9 +42,12 @@ export const Main = () => {
     return helpMemodataSorted(data);
   }, [data]);
 
+  // const arr = ["bottomCenter"];
+
   if (data) {
     return (
       <Table
+        pagination={{ position: ["bottomCenter"] }}
         columns={columns}
         dataSource={dataSorted}
         sticky={true}
@@ -51,6 +55,6 @@ export const Main = () => {
       />
     );
   } else {
-    return <div>Please wait, DUDE...</div>;
+    return <div className={s.dude}>Please wait, DUDE...</div>;
   }
 };
