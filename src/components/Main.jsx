@@ -42,8 +42,6 @@ export const Main = () => {
     return helpMemodataSorted(data);
   }, [data]);
 
-  // const arr = ["bottomCenter"];
-
   if (data) {
     return (
       <Table
