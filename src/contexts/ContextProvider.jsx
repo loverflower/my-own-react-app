@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { getDataFromApi } from "./Dal";
+import { getDataFromApi } from "../api/dal";
 
 export const ContextAll = createContext();
 export const useContextFunc = () => {

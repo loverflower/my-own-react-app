@@ -1,5 +1,4 @@
-import { getData } from "./Helper";
-import { hidePreloader } from "./Helper";
+import { getData, hidePreloader } from "../helpers/helpers";
 
 export const getDataFromApi = function (setData, setPreloader) {
   fetch("https://countries.trevorblades.com/", {
@@ -16,13 +15,16 @@ export const getDataFromApi = function (setData, setPreloader) {
              name
            }
          }
-           }
-           `,
+        }
+      `,
     }),
   })
-     .then((res) => res.json())
-     .then((res) => {
+    .then((res) => res.json())
+    .then((res) => {
       getData(res.data, setData);
       hidePreloader(setPreloader);
+    })
+    .catch((e) => {
+      alert(e);
     });
 };

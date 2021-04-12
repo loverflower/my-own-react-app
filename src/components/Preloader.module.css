@@ -1,0 +1,15 @@
+.spin {
+  font-size: 15px;
+  margin-bottom: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.dude {
+  margin-top: 10px;
+  font-size: 15px;
+  color: rgb(163, 163, 163);
+}
