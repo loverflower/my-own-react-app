@@ -1,3 +1,5 @@
+Deployed version -> https://flamboyant-galileo-4cf38e.netlify.app/
+
 Explanations:
 
 1. I used contextProvider to have opportunity unlarge our app simply. If it is final version i can rewrite it using just props.
