@@ -3,13 +3,13 @@ import { Input, Button, Space } from "antd";
 import Highlighter from "react-highlight-words";
 import { SearchOutlined } from "@ant-design/icons";
 
-export const getFiltredData = function (
+export const getFiltredData = (
   searchText,
   searchedColumn,
   setsearchText,
   setsearchedColumn,
   dataIndex
-) {
+) => {
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
     setsearchText(selectedKeys[0]);
@@ -20,6 +20,8 @@ export const getFiltredData = function (
     clearFilters();
     setsearchText("");
   };
+
+  let searchInput;
   const getColumnSearchProps = (dataIndex) => ({
     filterDropdown: ({
       setSelectedKeys,
@@ -29,6 +31,9 @@ export const getFiltredData = function (
     }) => (
       <div style={{ padding: 8 }}>
         <Input
+          ref={(node) => {
+            searchInput = node;
+          }}
           placeholder={`Search ${dataIndex}`}
           value={selectedKeys[0]}
           onChange={(e) =>
@@ -78,7 +83,11 @@ export const getFiltredData = function (
             .toLowerCase()
             .includes(value.toLowerCase())
         : "",
-
+    onFilterDropdownVisibleChange: (visible) => {
+      if (visible) {
+        setTimeout(() => searchInput.select(), 100);
+      }
+    },
     render: (text) =>
       searchedColumn === dataIndex ? (
         <Highlighter

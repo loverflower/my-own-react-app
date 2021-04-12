@@ -17,16 +17,11 @@ export const Main = () => {
     return getSortedData(data);
   }, [data]);
 
+  const param = [searchText, searchedColumn, setsearchText, setsearchedColumn];
+
   if (data) {
-    addFiltration(
-      getFiltredData(
-        searchText,
-        searchedColumn,
-        setsearchText,
-        setsearchedColumn,
-        columns[0].dataIndex
-      )
-    );
+    addFiltration(getFiltredData(...param, "name"), "name");
+    addFiltration(getFiltredData(...param, "code"), "code");
 
     return (
       <>

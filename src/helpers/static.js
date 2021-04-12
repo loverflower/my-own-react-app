@@ -11,7 +11,7 @@ export const columns = [
   },
 
   {
-    title: "Continent",
+    title: "Cont",
     dataIndex: "continent",
     defaultSortOrder: "ascend",
     sorter: filterData("continent"),
@@ -28,7 +28,6 @@ export const columns = [
       return record.continent === value;
     },
     sortDirections: ["descend", "ascend"],
-    align: "center",
   },
   {
     title: "Code",
@@ -37,7 +36,7 @@ export const columns = [
     sorter: filterData("code"),
     sortDirections: ["descend", "ascend"],
     align: "center",
-    width: 73,
+    width: 95,
     minWidth: 80,
   },
 
@@ -50,6 +49,10 @@ export const columns = [
   },
 ];
 
-export const addFiltration = (obj) => {
-  columns[0] = { ...columns[0], ...obj };
+export const addFiltration = (obj, name) => {
+  columns.forEach((el, i) => {
+    if (el.dataIndex === name) {
+      columns[i] = { ...el, ...obj };
+    }
+  });
 };
