@@ -19,3 +19,10 @@ export const getSortedData = (data) => {
     return { ...country, key: i + 1, continent: country.continent.name };
   });
 };
+
+export const filterContinent = (continent) => {
+  return {
+    text: continent,
+    value: continent,
+  };
+};
