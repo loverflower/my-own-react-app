@@ -15,6 +15,7 @@ export const columns = [
     defaultSortOrder: "ascend",
     sorter: filterData("continent"),
     sortDirections: ["descend", "ascend"],
+    align: "center",
   },
   {
     title: "Code",
@@ -23,13 +24,15 @@ export const columns = [
     sorter: filterData("code"),
     sortDirections: ["descend", "ascend"],
     align: "center",
-    width: "15%",
+    width: 73,
+    minWidth: 80,
   },
 
   {
     title: "Flag",
     dataIndex: "emoji",
     align: "center",
-    width: "10%",
+    width: 63,
+    minWidth: 70,
   },
 ];
