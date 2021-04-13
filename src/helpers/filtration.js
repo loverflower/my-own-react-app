@@ -2,6 +2,7 @@ import React from "react";
 import { Input, Button, Space } from "antd";
 import Highlighter from "react-highlight-words";
 import { SearchOutlined } from "@ant-design/icons";
+import { columns } from "./static";
 
 export const getFiltredData = (
   searchText,
@@ -101,4 +102,12 @@ export const getFiltredData = (
       ),
   });
   return getColumnSearchProps(dataIndex);
+};
+
+export const addFiltration = (obj, name) => {
+  columns.forEach((el, i) => {
+    if (el.dataIndex === name) {
+      columns[i] = { ...el, ...obj };
+    }
+  });
 };

@@ -48,11 +48,3 @@ export const columns = [
     minWidth: 70,
   },
 ];
-
-export const addFiltration = (obj, name) => {
-  columns.forEach((el, i) => {
-    if (el.dataIndex === name) {
-      columns[i] = { ...el, ...obj };
-    }
-  });
-};

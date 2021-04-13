@@ -3,21 +3,19 @@ import { Table } from "antd";
 import { useContextFunc } from "../contexts/ContextProvider";
 import { useMemo, useState } from "react";
 import { getSortedData } from "../helpers/helpers";
-import { columns, addFiltration } from "../helpers/static";
+import { columns } from "../helpers/static";
 import { Caption } from "./Caption";
-
 import React from "react";
-import { getFiltredData } from "../helpers/filtrathion";
+import { addFiltration, getFiltredData } from "../helpers/filtration";
 
 export const Main = () => {
   const { data } = useContextFunc();
-  const [searchText, setsearchText] = useState("");
-  const [searchedColumn, setsearchedColumn] = useState("");
+  const [searchText, setSearchText] = useState("");
+  const [searchedColumn, setSearchedColumn] = useState("");
   const dataSorted = useMemo(() => {
     return getSortedData(data);
   }, [data]);
-
-  const param = [searchText, searchedColumn, setsearchText, setsearchedColumn];
+  const param = [searchText, searchedColumn, setSearchText, setSearchedColumn];
 
   if (data) {
     addFiltration(getFiltredData(...param, "name"), "name");
